@@ -4,6 +4,7 @@ import json
 from twilio.twiml.messaging_response import MessagingResponse
 from covid_countries import *
 from covid_vaccination import *
+from covid_news import *
 
 app = Flask(__name__)
 
@@ -21,8 +22,8 @@ def bot():
     msg = resp.message()
     responded = False
 
-    if 'hi' in incoming_msg or 'hey' in incoming_msg or 'heya' in incoming_msg or 'menu' in incoming_msg:
-        text = f'Hello Fella!, \nThis is ELIZA, a covid bot to provide latest information updates corona virus for you and your family to stay stay safe.\n For any emergency 👇 \n 📞 Helpline: 011-23978046 | Toll-Free Number: 1075 \n ✉ Email: ncov2019@gov.in \n\n Please enter one of the following option 👇 \n *A*. Get information on countries and COntinents. \n *B*. Get information on vaccination in India. \n *C*. How does it *Spread*? \n *D*. *Preventive measures* to be taken.'
+    if 'hi' in incoming_msg or 'hey' in incoming_msg or 'covid' in incoming_msg or 'menu' in incoming_msg:
+        text = f'Hello Fella!, \nThis is ELIZA, a covid bot to provide latest information updates corona virus for you and your family to stay stay safe.\n For any emergency 👇 \n 📞 Helpline: 011-23978046 | Toll-Free Number: 1075 \n ✉ Email: ncov2019@gov.in \n\n Please enter one of the following option 👇 \n *A*. Get information on countries and COntinents. \n *B*. Get information on vaccination in India. \n *C*. How does it *Spread*? \n *D*. *Preventive measures* to be taken. \n *E*. *Latest News on Covid-19'
         msg.body(text)
         responded = False
 
@@ -66,7 +67,7 @@ def bot():
             responded = True
 
     if 'b' in incoming_msg:
-        text = f'Please enter one of the following option: \n*1*. Get vacination centers by district. \n*4*. Get vaccination updates by PIN.'
+        text = f'Please enter one of the following option: \n*1*. Get vacination centers by district. \n*2*. Get vaccination updates by PIN.'
         msg.body(text)
         option_msg = request.values.get('Body', '')
 
@@ -99,6 +100,31 @@ def bot():
         msg.body(text)
         msg.media('https://user-images.githubusercontent.com/34777376/77290864-1c93d000-6d03-11ea-96fe-18298535d125.jpeg')
         responded = True
+
+    if 'e' in incoming_msg:
+        text = f'Please enter one of the following option: \n*1*. Get news by Keyword. \n*2*. Get news by category.'
+        msg.body(text)
+        option_msg = request.values.get('Body', '')
+
+        if '1' in option_msg:
+            message = f'Please enter a keyword you want news for:'
+            msg.body(message)
+            
+            key = request.values.get('Body', '')
+            txt = newsbykeyword(key)
+            msg.body(txt)
+            responded = True
+
+        if '2' in option_msg:
+            message = f'Please enter a category you want news for:'
+            msg.body(message)
+            
+            category = request.values.get('Body', '')
+            txt = newsbycategory(category)
+            msg.body(txt)
+            responded = True
+        
+        
 
     if responded == False:
         msg.body('I only know about Covid-19, sorry!')

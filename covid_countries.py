@@ -1,5 +1,6 @@
 import requests
 import json
+# API KEY = 3b520d2fdc2044e9b22939eeb652a22d
 
 def All_Continents():
     r = requests.get('https://corona.lmao.ninja/v2/continents?yesterday=true&sort')
@@ -15,7 +16,7 @@ def Specific_Continent(cont):
 
     if status_code == 200:
         data = r.json()
-        text = f'__Covid updates of {data['continent']} for yesterday__ \n\nCases: *{data['cases']}* \n\nDeaths: *{data['deaths']}* \n\nRecovered: *{data['recovered']}* \n\nActive cases: *{data['active']}* \n\nCritical cases: *{data['critical']}*'
+        text = f"__Covid updates of {data['continent']} for yesterday__ \n\nCases: *{data['cases']}* \n\nDeaths: *{data['deaths']}* \n\nRecovered: *{data['recovered']}* \n\nActive cases: *{data['active']}* \n\nCritical cases: *{data['critical']}*"
     else:
         text = 'Sorry, could not receive the results..'
 
@@ -26,7 +27,7 @@ def Specific_Country(coun):
 
     if status_code == 200:
         data = r.json()
-        text = f'__Covid updates of {data['country']} for yesterday__ \n\nCases: *{data['cases']}* \n\nDeaths: *{data['deaths']}* \n\nRecovered: *{data['recovered']}* \n\nActive cases: *{data['active']}* \n\nCritical cases: *{data['critical']}* \n\nTests: *{data['tests']}*'
+        text = f"__Covid updates of {data['country']} for yesterday__ \n\nCases: *{data['cases']}* \n\nDeaths: *{data['deaths']}* \n\nRecovered: *{data['recovered']}* \n\nActive cases: *{data['active']}* \n\nCritical cases: *{data['critical']}* \n\nTests: *{data['tests']}*"
     else:
         text = 'Sorry, could not receive the results..'
 
@@ -38,9 +39,8 @@ def History_Country(coun,days):
 
     if status_code == 200:
         data = r.json()
-        for timeline in data['timelines']:
 
-        text = f'__Covid updates of {data['country']} for {days} days  \n\nCases: *{case['cases'] for case in data['timeline']}* \n\nDeaths: *{death['deaths'] for death in data['timeline']}* \n\nRecovered: *{recover['recovered'] for recover in data['timeline']}*'
+        text = f"__Covid updates of {data['country']} for {days} days  \n\nCases: *{case['cases'] for case in data['timeline']}* \n\nDeaths: *{d['deaths'] for d in data['timeline']}* \n\nRecovered: *{recover['recovered'] for recover in data['timeline']}*"
     else:
         text = 'Sorry, could not receive the results..'
     return text
