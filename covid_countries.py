@@ -26,7 +26,7 @@ def Specific_Country(coun):
 
     if status_code == 200:
         data = r.json()
-        text = f'data'
+        text = f'__Covid updates of {data['country']} for yesterday__ \n\nCases: *{data['cases']}* \n\nDeaths: *{data['deaths']}* \n\nRecovered: *{data['recovered']}* \n\nActive cases: *{data['active']}* \n\nCritical cases: *{data['critical']}* \n\nTests: *{data['tests']}*'
     else:
         text = 'Sorry, could not receive the results..'
 
@@ -38,7 +38,9 @@ def History_Country(coun,days):
 
     if status_code == 200:
         data = r.json()
-        text = f'data'
+        for timeline in data['timelines']:
+
+        text = f'__Covid updates of {data['country']} for {days} days  \n\nCases: *{case['cases'] for case in data['timeline']}* \n\nDeaths: *{death['deaths'] for death in data['timeline']}* \n\nRecovered: *{recover['recovered'] for recover in data['timeline']}*'
     else:
         text = 'Sorry, could not receive the results..'
     return text
