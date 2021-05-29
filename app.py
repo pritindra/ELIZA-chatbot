@@ -42,16 +42,16 @@ def bot():
         if '2' in option_msg:
             message = f'Please enter the continent:'
             msg.body(message)
-            cont = request.values.get('Body', '')
-            txt = Specific_Continent(cont)
+            
+            txt = Specific_Continent(incoming_msg)
             msg.body(txt)
             responded = True
         
         if '3' in option_msg:
             message = f'Please enter the country:'
             msg.body(message)
-            coun = request.values.get('Body', '')
-            txt = Specific_Country(coun)
+            
+            txt = Specific_Country(incoming_msg)
             msg.body(txt)
             responded = True
 
