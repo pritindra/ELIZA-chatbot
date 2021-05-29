@@ -32,7 +32,7 @@ def bot():
         text = f'Please enter one of the following option: \n *1*. Get updates on all continents.\n *2*. Get updates on specific continent. \n*3*. Get updates on specific country. \n*4*. Get updates of historical data of a country.'
         msg.body(text)
         option_msg = request.values.get('Body', '')
-        responded = False
+        responded = True
 
         if '1' in option_msg:
             txt = All_Continents()
@@ -71,7 +71,7 @@ def bot():
         text = f'Please enter one of the following option: \n*1*. Get vacination centers by district. \n*2*. Get vaccination updates by PIN.'
         msg.body(text)
         option_msg = request.values.get('Body', '')
-        responded = False
+        responded = True
 
         if '1' in option_msg:
             message = f'Please enter your district'
