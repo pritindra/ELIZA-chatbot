@@ -16,14 +16,14 @@ def hello():
 
 @app.route('/bot', methods = ['GET','POST'])
 def bot():
-    incoming_msg = request.values.get('Body', '').lower()
+    incoming_msg = request.values.get('Body', '')
     #print(incoming_msg)
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
 
     if 'hi' in incoming_msg or 'hey' in incoming_msg or 'covid' in incoming_msg or 'menu' in incoming_msg:
-        text = f'Hello Fella!, \nThis is ELIZA, a covid bot to provide latest information updates corona virus for you and your family to stay stay safe.\n For any emergency 👇 \n 📞 Helpline: 011-23978046 | Toll-Free Number: 1075 \n ✉ Email: ncov2019@gov.in \n\n Please enter one of the following option 👇 \n *A*. Get information on countries and COntinents. \n *B*. Get information on vaccination in India. \n *C*. How does it *Spread*? \n *D*. *Preventive measures* to be taken. \n *E*. Latest News on Covid-19.'
+        text = f'Hello Fella!, \nThis is ELIZA, a covid bot to provide latest information updates on corona virus for you and your family to stay stay safe.\n For any emergency 👇 \n 📞 Helpline: 011-23978046 | Toll-Free Number: 1075 \n ✉ Email: ncov2019@gov.in \n\n Please enter one of the following option 👇 \n *A*. Get information on countries and COntinents. \n *B*. Get information on vaccination in India. \n *C*. How does it *Spread*? \n *D*. *Preventive measures* to be taken. \n *E*. Latest News on Covid-19.'
         msg.body(text)
         responded = True
 
@@ -31,7 +31,7 @@ def bot():
     if 'a' in incoming_msg:
         text = f'Please enter one of the following option: \n *1*. Get updates on all continents.\n *2*. Get updates on specific continent. \n*3*. Get updates on specific country. \n*4*. Get updates of historical data of a country.'
         msg.body(text)
-        option_msg = request.values.get('Body', '')
+        
         responded = True
 
         if '1' in option_msg:
@@ -107,7 +107,7 @@ def bot():
         text = f'Please enter one of the following option: \n*1*. Get news by Keyword. \n*2*. Get news by category.'
         msg.body(text)
         option_msg = request.values.get('Body', '')
-        responded = False
+        responded = True
 
         if '1' in option_msg:
             message = f'Please enter a keyword you want news for:'
