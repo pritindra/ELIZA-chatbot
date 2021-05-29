@@ -14,7 +14,7 @@ def hello():
     return "Hello World!"
 
 
-@app.route('/bot', methods = ['POST'])
+@app.route('/bot', methods = ['GET','POST'])
 def bot():
     incoming_msg = request.values.get('Body', '').lower()
     #print(incoming_msg)
@@ -25,7 +25,7 @@ def bot():
     if 'hi' in incoming_msg or 'hey' in incoming_msg or 'covid' in incoming_msg or 'menu' in incoming_msg:
         text = f'Hello Fella!, \nThis is ELIZA, a covid bot to provide latest information updates corona virus for you and your family to stay stay safe.\n For any emergency 👇 \n 📞 Helpline: 011-23978046 | Toll-Free Number: 1075 \n ✉ Email: ncov2019@gov.in \n\n Please enter one of the following option 👇 \n *A*. Get information on countries and COntinents. \n *B*. Get information on vaccination in India. \n *C*. How does it *Spread*? \n *D*. *Preventive measures* to be taken. \n *E*. Latest News on Covid-19.'
         msg.body(text)
-        responded = False
+        responded = True
 
     # IF-ELSE Statements
     if 'a' in incoming_msg:
