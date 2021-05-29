@@ -5,14 +5,14 @@
   <p align="center">
     A goto whatsapp bot for all covid updates
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/pritindra/Eliza-chatbot"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/pritindra/Eliza-chatbot">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/pritindra/Eliza-chatbot/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/pritindra/Eliza-chatbot/issues">Request Feature</a>
   </p>
 </p>
 
@@ -75,7 +75,7 @@ Major tech stack and framewroks used:
 
 
 ### Installation
-
+```
 $ pip install virtualenv
 $ virualenv covid-bot
 $ covid-bot\Scripts\activate
@@ -83,7 +83,7 @@ $ covid-bot\Scripts\activate
 $ pip install flask
 $ pip install twilio
 $ pip install request
-
+```
 ## Usage
 
 Simply send a WhatsApp message to **(+1) 415523 8886** with code **join take-action**. It will show a message saying connected to sandbox. 
