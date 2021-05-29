@@ -12,6 +12,8 @@ def findbydist(id_msg):
         text = f'{data}'
     else:
         text = 'I could not receive the results at this time, sorry.'
+    
+    return text
 
 def findbypin(pin_msg):
     payload = {'pincode':pin_msg, 'date':d}
@@ -22,4 +24,4 @@ def findbypin(pin_msg):
     else:
         text = 'I could not receive the results at this time, sorry.'
     
-
+    return text
