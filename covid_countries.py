@@ -5,8 +5,9 @@ import json
 def All_Continents():
     r = requests.get('https://corona.lmao.ninja/v2/continents?yesterday=true&sort')
     if r.status_code == 200:
-        data = r.json()
-        text = f'{data}'
+        data1 = r.json()
+        data = data1[0]
+        text = f"__Covid updates of yesterday__\n\nContinent:*{data['continent']}* \n\nCases: *{data['cases']}* \n\nDeaths: *{data['deaths']}* \n\nRecovered: *{data['recovered']}* \n\nActive cases: *{data['active']}* \n\nCritical cases: *{data['critical']}*"
     else:
         text = 'Sorry, could not receive the results..'
     return text
