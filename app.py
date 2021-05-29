@@ -34,12 +34,12 @@ def bot():
         
         responded = True
 
-        if '1' in option_msg:
+        if '1' in incoming_msg:
             txt = All_Continents()
             msg.body(txt)
             responded = True
 
-        if '2' in option_msg:
+        if '2' in incoming_msg:
             message = f'Please enter the continent:'
             msg.body(message)
             
@@ -47,7 +47,7 @@ def bot():
             msg.body(txt)
             responded = True
         
-        if '3' in option_msg:
+        if '3' in incoming_msg:
             message = f'Please enter the country:'
             msg.body(message)
             
