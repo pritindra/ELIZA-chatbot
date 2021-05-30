@@ -62,7 +62,7 @@ to their content.
 A hub to find information on just a click to a whatsapp bot for a greater mass. Anybody
 with an whatsapp account can access the bot.
 The bot number - +1 (415) 523-8886
-Simply send a WhatsApp message to ****(+1) 415523 8886** with code ****join take-action**. It will show a message saying connected to sandbox. 
+Simply send a WhatsApp message to **(+1) 415523 8886** with code **join take-action**. It will show a message saying connected to sandbox. 
 
 
 ### Built With
@@ -97,3 +97,18 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## License
+
+Not created.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Your Name - [@DasPritindra](https://twitter.com/DasPritindra) 
+
+Project Link: [https://github.com/pritindra/ELIZA-chatbot](https://github.com/pritindra/ELIZA-chatbot)
+
+## Acknowledgements
