@@ -17,7 +17,7 @@ def hello():
 @app.route('/bot', methods = ['GET','POST'])
 def bot():
     incoming_msg = request.values.get('Body', '')
-    #print(incoming_msg)
+    print(incoming_msg[2:])
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
@@ -106,28 +106,29 @@ def bot():
     if 'E' in incoming_msg:
         text = f'Please enter one of the following option: \n*1*. Get news by Keyword. \n*2*. Get news by category.'
         msg.body(text)
-        option_msg = request.values.get('Body', '')
+        
         responded = True
 
-        if '1' in option_msg:
-            message = f'Please enter a keyword you want news for:'
-            msg.body(message)
-            
-            key = request.values.get('Body', '')
-            txt = newsbykeyword(key)
-            msg.body(txt)
-            responded = True
+    if '1' in incoming_msg:
+        message = f'Please enter a keyword you want news for:'
+        msg.body(message)
+        responded = True
+    
+    if 'n-' in incoming_msg:
+        txt = newsbykeyword(incoming_msg[2:])
+        msg.body(txt)
+        responded = True
 
-        if '2' in option_msg:
-            message = f'Please enter a category you want news for:'
-            msg.body(message)
-            
-            category = request.values.get('Body', '')
-            txt = newsbycategory(category)
-            msg.body(txt)
-            responded = True
+    if '2' in incoming_msg:
+        message = f'Please enter a category you want news for:'
+        msg.body(message)
         
-        
+        category = request.values.get('Body', '')
+        txt = newsbycategory(category)
+        msg.body(txt)
+        responded = True
+    
+    
 
     if responded == False:
         msg.body('I only know about Covid-19, sorry!')
