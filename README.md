@@ -76,9 +76,8 @@ Major tech stack and framewroks used:
 
 ### Installation
 ```
-$ pip install virtualenv
-$ virualenv covid-bot
-$ covid-bot\Scripts\activate
+$ conda create -n eliza-bot python=3.6
+$ conda activate eliza-bot
 
 $ pip install flask
 $ pip install twilio
